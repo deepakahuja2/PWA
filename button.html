@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body onload="displayNotification">
+
+<h1>Button</h1>
+
+<a href="./homepage.php">Click Me!</button>
+ <script>
+if (window.Notification) {
+  Notification.requestPermission(() => {
+    if (Notification.permission === 'granted') {
+      navigator.serviceWorker.register('./sw.js')
+        .then((worker) => {
+          worker.showNotification('Hello world!');
+        });
+    }
+  });
+}
+
+
+ </script>
+</body>
+</html>
